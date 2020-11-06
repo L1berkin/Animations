@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="wrapper">
     <Header />
-    <main>
+    <main class="main">
       <Nuxt />
     </main>
   </div>
 </template>
 
-<style>
+<style lang="scss">
 </style>

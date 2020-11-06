@@ -2,22 +2,26 @@
   <header class="header">
     <nav class="header__nav">
       <ul class="main-nav">
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">First</nuxt-link></li>
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">Second</nuxt-link></li>
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">Third</nuxt-link></li>
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">Fourth</nuxt-link></li>
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">Fifth</nuxt-link></li>
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">Sixth</nuxt-link></li>
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">Seventh</nuxt-link></li>
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">Eighth</nuxt-link></li>
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">Ninth</nuxt-link></li>
-        <li class="main-nav__item"><nuxt-link to="" class="main-nav__link">Tenth</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'index'}" class="main-nav__link">First</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'SecondPage'}" class="main-nav__link">Second</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'ThirdPage'}" class="main-nav__link">Third</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'FourthPage'}" class="main-nav__link">Fourth</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'FifthPage'}" class="main-nav__link">Fifth</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'SixthPage'}" class="main-nav__link">Sixth</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'SeventhPage'}" class="main-nav__link">Seventh</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'EighthPage'}" class="main-nav__link">Eighth</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'NinthPage'}" class="main-nav__link">Ninth</nuxt-link></li>
+        <li class="main-nav__item"><nuxt-link :to="{ name: 'TenthPage'}" class="main-nav__link">Tenth</nuxt-link></li>
       </ul>
     </nav>
   </header>
 </template>
 <style lang="scss" scoped>
   .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     box-shadow: 0 0 5px;
     background-color: rgba(255, 255, 255, 0.4);
   }
@@ -36,7 +40,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 6vw;
+      height: $Header-height;
       &:hover {
         background-color: rgba(204, 204, 204, 0.4);
       }
