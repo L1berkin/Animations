@@ -24,6 +24,7 @@
     right: 0;
     box-shadow: 0 0 5px;
     background-color: rgba(255, 255, 255, 0.4);
+    z-index: 10;
   }
 
   .main-nav {
@@ -41,8 +42,14 @@
       align-items: center;
       justify-content: center;
       height: $Header-height;
+      color: rgba(255, 255, 255, 0.877);
       &:hover {
-        background-color: rgba(204, 204, 204, 0.4);
+        background-color: rgba(175, 175, 175, 0.53);
+        color: #fff;
+      }
+      &:active {
+        background-color: rgba(255, 255, 255, 0.53);
+        color: rgb(128, 128, 128);
       }
     }
   }
