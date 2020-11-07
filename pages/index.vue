@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">Animation Lives</h1>
+    <h1 class="title">Animation Application</h1>
     <section class="leaves">
       <div class="leaves__set">
       <div class="leaves__item"><img src="@/assets/images/leaf_2.png" alt=""></div>
@@ -60,6 +60,7 @@
     &__item {
       position: absolute;
       display: block;
+      pointer-events: none;
     }
 
     &__item:nth-child(1) {

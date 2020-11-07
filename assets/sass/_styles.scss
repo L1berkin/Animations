@@ -4,15 +4,15 @@ h1 {
   font-weight: bold;
 }
 // Позиционирование главных блоков страниц
-.main {
-  flex-grow: 1;
-  display: flex;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
 }
 
 .container {

@@ -42,7 +42,7 @@
       align-items: center;
       justify-content: center;
       height: $Header-height;
-      color: rgba(255, 255, 255, 0.877);
+      color: rgba(0, 0, 0, 0.877);
       &:hover {
         background-color: rgba(175, 175, 175, 0.53);
         color: #fff;
