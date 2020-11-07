@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-.container {
-  background-color: #010636;
-}
+  .container {
+    background-color: #010636;
+  }
 </style>

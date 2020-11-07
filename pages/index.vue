@@ -45,7 +45,7 @@
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100vh - $Header-height;
+    height: 100vh;
     overflow: hidden;
 
     &__set {
