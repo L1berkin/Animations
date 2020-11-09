@@ -158,7 +158,7 @@ export default {
     text-align: center;
     color: #fff;
     opacity: 0.2;
-    font-size: 10em;
+    font-size: 8em;
   }
 
   &__content {
