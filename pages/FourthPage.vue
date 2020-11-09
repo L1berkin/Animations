@@ -129,7 +129,7 @@ $border-radius: 10px;
   right: 0;
   border-radius: $border-radius;
   background-color: #fff;
-  transition-delay: 0.22s;
+  transition-delay: 0.215s;
   box-shadow: 0 0 10px 0 #000;
 }
 
@@ -143,7 +143,7 @@ $border-radius: 10px;
   background-color: #ccc;
   opacity: 0;
   transform: rotateX(180deg);
-  transition-delay: 0.22s;
+  transition-delay: 0.215s;
   transition-property: opacity;
   box-shadow: 0 0 10px 0 #000;
 }

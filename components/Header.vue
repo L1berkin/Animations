@@ -82,6 +82,7 @@
       justify-content: center;
       height: $Header-height;
       color: rgba(0, 0, 0, 0.877);
+      transition-duration: .5s;
       &:hover {
         background-color: rgba(175, 175, 175, 0.53);
         color: #fff;
