@@ -3,51 +3,51 @@
     <nav class="header__nav">
       <ul class="main-nav">
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'index'}" exact active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'index'}" no-prefetch  exact active-class="active" class="main-nav__link">
             First
           </nuxt-link>
         </li>
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'SecondPage'}" active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'SecondPage'}" no-prefetch active-class="active" class="main-nav__link">
             Second
           </nuxt-link></li>
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'ThirdPage'}" active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'ThirdPage'}" no-prefetch active-class="active" class="main-nav__link">
             Third
           </nuxt-link>
         </li>
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'FourthPage'}" active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'FourthPage'}" no-prefetch active-class="active" class="main-nav__link">
             Fourth
           </nuxt-link>
         </li>
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'FifthPage'}" active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'FifthPage'}" no-prefetch active-class="active" class="main-nav__link">
             Fifth
           </nuxt-link>
         </li>
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'SixthPage'}" active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'SixthPage'}" no-prefetch active-class="active" class="main-nav__link">
             Sixth
           </nuxt-link>
         </li>
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'SeventhPage'}" active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'SeventhPage'}" no-prefetch active-class="active" class="main-nav__link">
             Seventh
           </nuxt-link>
         </li>
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'EighthPage'}" active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'EighthPage'}" no-prefetch active-class="active" class="main-nav__link">
             Eighth
           </nuxt-link>
         </li>
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'NinthPage'}" active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'NinthPage'}" no-prefetch active-class="active" class="main-nav__link">
             Ninth
           </nuxt-link>
         </li>
         <li class="main-nav__item">
-          <nuxt-link :to="{ name: 'TenthPage'}" active-class="active" class="main-nav__link">
+          <nuxt-link :to="{ name: 'TenthPage'}" no-prefetch active-class="active" class="main-nav__link">
             Tenth
           </nuxt-link>
         </li>
