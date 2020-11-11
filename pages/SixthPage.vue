@@ -5,7 +5,7 @@
         <a href="" class="links-list__link">
           <img
             src="@/assets/images/social/facebook_icon.svg"
-            alt="Vk"
+            alt="facebook"
             width="100%"
           />
           <span></span>
@@ -16,7 +16,11 @@
       </li>
       <li class="links-list__item">
         <a href="" class="links-list__link">
-          <img src="@/assets/images/social/vk_icon.svg" alt="Vk" width="100%" />
+          <img 
+            src="@/assets/images/social/vk_icon.svg"
+            alt="Vk" 
+            width="100%" 
+          />
           <span></span>
           <span></span>
           <span></span>
@@ -27,7 +31,7 @@
         <a href="" class="links-list__link">
           <img
             src="@/assets/images/social/google_icon.svg"
-            alt="Vk"
+            alt="google"
             width="100%"
           />
           <span></span>
@@ -40,7 +44,7 @@
         <a href="" class="links-list__link">
           <img
             src="@/assets/images/social/twitter_icon.svg"
-            alt="Vk"
+            alt="twitter"
             width="100%"
           />
           <span></span>
@@ -95,7 +99,7 @@
   span {
     background-color: #000;
     position: absolute;
-    transition-duration: .5s;
+    transition-duration: 0.5s;
 
     &:nth-child(2) {
       top: 0;
