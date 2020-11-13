@@ -1,102 +1,166 @@
 <template>
   <div class="container">
-    <ul class="list">
-      <li class="list__item">
-        <label class="list-label">
-          List item 1
-          <input type="checkbox" class="list-label__input">
-          <span class="list-label__check"></span>
-        </label>
-      </li>
-      <li class="list__item">
-        <label class="list-label">
-          List item 2
-          <input type="checkbox" class="list-label__input">
-          <span class="list-label__check"></span>
-        </label>
-      </li>
-      <li class="list__item">
-        <label class="list-label">
-          List item 3
-          <input type="checkbox" class="list-label__input">
-          <span class="list-label__check"></span>
-        </label>
-      </li>
-      <li class="list__item">
-        <label class="list-label">
-          List item 4
-          <input type="checkbox" class="list-label__input">
-          <span class="list-label__check"></span>
-        </label>
-      </li>
-    </ul>
+    <div class="card">
+      <div class="card__body">
+        <div class="card-front">
+          <h1 class="title">FRONT</h1>
+          <div class="logo"></div>
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor qui
+            quod hic quos explicabo facere rerum iste animi excepturi blanditiis
+            eligendi sequi, deleniti voluptatem eum laudantium? Voluptates id
+            obcaecati dolores?
+          </p>
+        </div>
+
+        <div class="card-back">
+          <h1 class="title">BACK</h1>
+          <div class="logo"></div>
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor qui
+            quod hic quos explicabo facere rerum iste animi excepturi blanditiis
+            eligendi sequi, deleniti voluptatem eum laudantium? Voluptates id
+            obcaecati dolores?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card__body">
+        <div class="card-front">
+          <h1 class="title">FRONT</h1>
+          <div class="logo"></div>
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor qui
+            quod hic quos explicabo facere rerum iste animi excepturi blanditiis
+            eligendi sequi, deleniti voluptatem eum laudantium? Voluptates id
+            obcaecati dolores?
+          </p>
+        </div>
+
+        <div class="card-back">
+          <h1 class="title">BACK</h1>
+          <div class="logo"></div>
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor qui
+            quod hic quos explicabo facere rerum iste animi excepturi blanditiis
+            eligendi sequi, deleniti voluptatem eum laudantium? Voluptates id
+            obcaecati dolores?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card__body">
+        <div class="card-front">
+          <h1 class="title">FRONT</h1>
+          <div class="logo"></div>
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor qui
+            quod hic quos explicabo facere rerum iste animi excepturi blanditiis
+            eligendi sequi, deleniti voluptatem eum laudantium? Voluptates id
+            obcaecati dolores?
+          </p>
+        </div>
+
+        <div class="card-back">
+          <h1 class="title">BACK</h1>
+          <div class="logo"></div>
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor qui
+            quod hic quos explicabo facere rerum iste animi excepturi blanditiis
+            eligendi sequi, deleniti voluptatem eum laudantium? Voluptates id
+            obcaecati dolores?
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  .container {
-    background-color: #00080c;
-  }
+$border-radius: 10px;
 
-  .list {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: #00151f;
-    padding: 10px 20px;
-    width: 200px;
-    border: 1px solid rgba(0, 0, 0, .5);
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-image: url("~@/assets/images/backgrounds/road.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-    &__item {
-      position: relative;
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      &:last-child {
-        border-bottom: none;
-      }
+.card {
+  width: 250px;
+  height: 350px;
+  margin-top: -$Header-height;
+  border-radius: $border-radius;
+  &:hover {
+    .card__body {
+      transform: perspective(400px) rotateX(-180deg);
     }
-  }
 
-  .list-label {
-    font-size: 18px;
-    color: #fff;
-    padding-left: 30px;
-    cursor: pointer;
-
-    &__input {
+    .card-front {
       opacity: 0;
-      cursor: pointer;
     }
 
-    &__check {
-      position: absolute;
-      top: 12px;
-      left: 0;
-      width: 20px;
-      height: 20px;
-      background: #000;
-      display: block;
-      border: 2px solid #000;
-      border-radius: 4px;
-      &:before {
-        content: '';
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
-        background: #000b10;
-        border-radius: 2px;
-        transition: .5s;
-        transform: translateX(150px);
-      }
+    .card-back {
+      opacity: 1;
     }
   }
 
-  .list-label__input:checked ~ .list-label__check:before {
-    background: #adff00;
-    box-shadow: 0 0 15px #adff00;
-    transform: translateX(0);
+  &__body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-duration: 0.8s;
+    transform: perspective(400px);
   }
+}
+
+.card-front {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: $border-radius;
+  background-color: #fff;
+  transition-delay: 0.215s;
+  box-shadow: 0 0 10px 0 #000;
+}
+
+.card-back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: $border-radius;
+  background-color: #ccc;
+  opacity: 0;
+  transform: rotateX(180deg);
+  transition-delay: 0.215s;
+  transition-property: opacity;
+  box-shadow: 0 0 10px 0 #000;
+}
+
+.title {
+  margin: 1em 0;
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: rgba(6, 111, 0, 0.306);
+  margin: 0 auto 2em;
+}
+
+.content {
+  margin: 0 .5em;
+}
 </style>
