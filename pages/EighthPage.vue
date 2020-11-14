@@ -1,21 +1,30 @@
 <template>
   <div class="container">
     <div class="scene">
-      <div class="moon"></div>
-      <img src="@/assets/images/forest.png" alt="Лес" class="forest" />
-      <img src="@/assets/images/cloud1.png" alt="Лес" class="cloud cloud1" />
-      <img src="@/assets/images/cloud2.png" alt="Лес" class="cloud cloud2" />
-      <img src="@/assets/images/cloud3.png" alt="Лес" class="cloud cloud3" />
-      <img src="@/assets/images/cloud1.png" alt="Лес" class="cloud cloud4" />
-      <img src="@/assets/images/cloud2.png" alt="Лес" class="cloud cloud5" />
-      <img src="@/assets/images/cloud3.png" alt="Лес" class="cloud cloud6" />
-
+      <div id="moonSun" class="moonSun" v-on:click="newDay()">
+        <img class="moon" src="@/assets/images/moon.png" alt="луна" width="100%">
+      </div>
+      <img src="@/assets/images/forest.png" alt="лес" class="forest" />
+      <img src="@/assets/images/cloud1.png" alt="облако" class="cloud cloud1" />
+      <img src="@/assets/images/cloud2.png" alt="облако" class="cloud cloud2" />
+      <img src="@/assets/images/cloud3.png" alt="облако" class="cloud cloud3" />
+      <img src="@/assets/images/cloud1.png" alt="облако" class="cloud cloud4" />
+      <img src="@/assets/images/cloud2.png" alt="облако" class="cloud cloud5" />
+      <img src="@/assets/images/cloud3.png" alt="облако" class="cloud cloud6" />
+      <div class="island-box hide">
+        <img src="@/assets/images/остров.png" alt="остров" class="island-box__img" width="100%">
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      stars: []
+    }
+  },
   mounted() {
     const count = 500
     const scene = document.querySelector('.scene')
@@ -39,28 +48,66 @@ export default {
         animation: 'stars linear infinite',
         animationDuration: 5 + duration +'s',
         animationDelay: duration +'s'
-
       })
 
+      this.stars.push(star)
       scene.append(star)
     }
-
+    
+    this.clouds = document.querySelectorAll('.cloud')
+    this.moonSun = document.querySelector('#moonSun')
+    this.forest = document.querySelector('.forest')
+    this.moon = document.querySelector('.moon')
+    this.bg = document.querySelector('.scene')
+    this.island = document.querySelector('.island-box')
   },
   methods: {
     css($el, propertys = {}) {
       Object.keys(propertys).forEach(property => {
         $el.style[property] = propertys[property]
       })
+    },
+    newDay() {
+      this.moonSun.classList.toggle('sun')
+      this.moonSun.classList.toggle('moon')
+      this.hideShow(this.forest)
+      this.hideShow(this.moon)
+      this.hideShow(this.island)
+      if (!this.stars[1].style.display) {
+        Object.keys(this.stars).forEach( count => {
+        this.stars[count].style.display = 'none'
+      })
+      } else {
+        Object.keys(this.stars).forEach( count => {
+        this.stars[count].style.display = ''
+      })
+      }
+
+      this.clouds.forEach(cloud => {
+        this.hideShow(cloud)
+      })
+
+      this.stars.forEach(star => {
+        this.hideShow(star)
+      })
+
+      this.changeBg(this.bg)
+    },
+    hideShow($el) {
+      $el.classList.toggle('hide')
+    },
+    changeBg($el) {
+      if (!$el.style.background) {
+        $el.style.background = 'linear-gradient(#d85600, #ffc527)'
+      } else {
+        $el.style = ''
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.container {
-  background-color: #9f9f9f;
-}
-
 .scene {
   position: relative;
   width: 100%;
@@ -71,27 +118,73 @@ export default {
   overflow: hidden;
 }
 
-.moon {
+.island-box {
+  position: absolute;
+  width: 80%;
+  top: 10%;
+  right: 10%;
+  transition-duration: 1s;
+}
+
+.moonSun {
   position: absolute;
   top: 100px;
   left: 400px;
   width: 100px;
   height: 100px;
-  background: #fff;
   border-radius: 50%;
   z-index: 1000;
   cursor: pointer;
-  &:after {
-    content: "";
+  transition-duration: 1s;
+}
+
+.moon {
+  transition-duration: 1s;
+}
+
+.sun {
+  position: absolute;
+  top: 100px;
+  left: 400px;
+  width: 100px;
+  height: 100px;
+  background: rgb(255, 153, 0);
+  border-radius: 50%;
+  z-index: 1000;
+  cursor: pointer;
+  transition-duration: 1s;
+  transform: translate(-100px, 50px) scale(1.5);
+  &:before {
+    content: '';
+    display: block;
     position: absolute;
-    top: -15px;
-    left: 15px;
-    width: 100%;
-    height: 100%;
+    left: -10px;
+    top: -10px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background: linear-gradient(#111425, #3751e0);
-    background-attachment: fixed;
+    background: radial-gradient(rgb(255, 153, 0) ,rgba(255, 201, 120, 0.5));
   }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(rgb(255, 153, 0) ,rgba(255, 214, 152, 0.394));
+    box-shadow: 0 0 60px 20px rgba(255, 186, 82, 0.7);
+  }
+}
+
+.hide {
+  opacity: 0;
+}
+
+.hide-star {
+  display: none;
 }
 
 .forest {
@@ -100,6 +193,8 @@ export default {
   left: 0;
   width: 100%;
   z-index: 1000;
+  transition-duration: 1s;
+  transition-property: opacity;
   transform: scale(1.2);
 }
 
@@ -108,6 +203,7 @@ export default {
   left: 0;
   z-index: 1000;
   pointer-events: none;
+  transition-duration: 1s;
 }
 
 .cloud1 {
