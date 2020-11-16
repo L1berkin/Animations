@@ -216,7 +216,8 @@ export default {
 }
 
 .active.bg-1 {
-  background-image: url("~@/assets/images/logo_html-css.png");
+  background-image: url("~@/assets/images/logo-notepad.png");
+  background-size: 40%;
 }
 
 .active.bg-2 {

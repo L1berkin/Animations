@@ -141,6 +141,7 @@ export default {
 
 .moon {
   transition-duration: 1s;
+  user-select: none;
 }
 
 .sun {

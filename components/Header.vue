@@ -83,8 +83,10 @@
       height: $Header-height;
       color: rgba(0, 0, 0, 0.877);
       transition-duration: .5s;
+      user-select: none;
       &:hover {
         background-color: rgba(175, 175, 175, 0.53);
+        box-shadow: 0 0 10px 0 #fff;
         color: #fff;
       }
       &:active {
@@ -95,6 +97,6 @@
   }
 
   .active {
-    background-color: rgba(175, 175, 175, 0.53);
+    background-color: rgba(175, 175, 175, 0.51);
   }
 </style>
