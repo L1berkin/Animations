@@ -120,8 +120,9 @@ export default {
 
 .island-box {
   position: absolute;
-  width: 80%;
-  top: 10%;
+  width: 70%;
+  min-width: 700px;
+  bottom: 0%;
   right: 10%;
   transition-duration: 1s;
 }

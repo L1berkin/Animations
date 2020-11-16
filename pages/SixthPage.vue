@@ -6,7 +6,7 @@
           <img
             src="@/assets/images/social/facebook_icon.svg"
             alt="facebook"
-            width="100%"
+            width="z%"
           />
           <span></span>
           <span></span>
