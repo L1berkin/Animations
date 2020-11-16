@@ -54,6 +54,8 @@ export default {
     position: relative;
     color: #fff;
     font-size: 10em;
+    pointer-events: none;
+    user-select: none;
   }
 
   .geom-img {

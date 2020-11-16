@@ -1,49 +1,67 @@
 <template>
-  <div class="container">
-    <section class="header">
-      <nav class="header__nav">
-        <ul class="main-nav">
-          <router-link to="" class="main-nav__item"><li>Главная</li></router-link>
-          <router-link to="" class="main-nav__item"><li>Главная</li></router-link>
-          <router-link to="" class="main-nav__item"><li>Главная</li></router-link>
-          <router-link to="" class="main-nav__item"><li>Главная</li></router-link>
-          <router-link to="" class="main-nav__item"><li>Главная</li></router-link>          
-        </ul>
-      </nav>
-    </section>
+  <div class="container" @click="draw" @mousedown="startDraw" @mouseup="endDraw">
+
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      container: ''
+    }
+  },
+  mounted() {
+    this.container = document.querySelector('.container')
+  },
+  methods: {
+    draw() {
+      const bubble = document.createElement('span')
+      bubble.classList.add('bubble')
+      const x = event.offsetX
+      const y = event.offsetY
+      const size = Math.random() * 100
+      const duration = Math.random() * 10
+
+      this.css(bubble, {
+        left: x + 'px',
+        top: y + 'px',
+        width: 20 + size + 'px',
+        height: 20 + size + 'px',
+        pointerEvents: 'none',
+        marginLeft: -size / 2 + 'px',
+        marginTop: -size / 2 + 'px',
+        animation: `bubbles ${duration < 2 ? 3 : duration}s linear forwards`
+      })
+
+      setTimeout(() => {
+        bubble.remove()
+      }, 2000)
+
+      this.container.append(bubble)
+    },
+    startDraw() {
+      this.container.addEventListener('mousemove', this.draw)
+    },
+    endDraw() {
+      this.container.removeEventListener('mousemove', this.draw)
+    },
+    css($el, propertys = {}) {
+      Object.keys(propertys).forEach(property => {
+        $el.style[property] = propertys[property]
+      })
+    },
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .container {
-  background-color: #ffffff;
-}
-
-.header {
-  margin: 4em 0;
-}
-
-.main-nav {
-  display: flex;
-  justify-content: space-between;
-
-  &__item {
-    text-align: center;
-    padding: 1em 0 0.5em;
-    flex-grow: 1;
-    &:after {
-      content: '';
-      display: block;
-      width: 0%;
-      margin: .5em auto 0;
-      transition-duration: .5s;
-      border-bottom: 2px solid black;
-    }
-    &:hover {
-      &:after {
-        width: 100%;
-      }
-    }
-  }
+  overflow: hidden;
+  position: relative;
+  background: url(~@/assets/images/under-water.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 </style>

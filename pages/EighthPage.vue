@@ -44,8 +44,8 @@ export default {
         height: 1 + size + 'px',
         position: 'absolute',
         background: '#fff',
-        borderRadius: '50%',
-        animation: 'stars linear infinite',
+        borderRadius: '100%',
+        animation: 'stars-8 linear infinite',
         animationDuration: 5 + duration +'s',
         animationDelay: duration +'s'
       })

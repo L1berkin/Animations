@@ -1,4 +1,4 @@
-@keyframes stars {
+@keyframes stars-8 {
   0% {
     opacity: 0;
     transform: translateY(0);
@@ -21,5 +21,14 @@
   }
   100% {
     transform: translateY(200vh);
+  }
+}
+
+@keyframes bubbles {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1000px);
   }
 }

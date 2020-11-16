@@ -19,3 +19,14 @@ h1 {
   flex-grow: 1;
   padding-top: $Header-height;
 }
+
+.bubble {
+  position: absolute;
+  background: url(~@/assets/images/bubble.png);
+  border-radius: 50%;
+  box-shadow: 0 0 2px 0 rgb(104, 222, 255);
+  border-radius: '50%';
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

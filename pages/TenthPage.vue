@@ -94,6 +94,7 @@ export default {
   pointer-events: none;
   animation: shaking 0.2s ease infinite;
   z-index: 1000;
+  user-select: none;
   &:before {
     content: '';
     position: absolute;

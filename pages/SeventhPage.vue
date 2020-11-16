@@ -57,6 +57,8 @@
       height: 100%;
       background: linear-gradient(0deg, #f1f1f1, #bbb, #f1f1f1);
       border-radius: 20px;
+      user-select: none;
+      pointer-events: none;
       &:nth-child(1) {
         transform: rotateX(0deg);
       }
