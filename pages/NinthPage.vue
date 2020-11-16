@@ -43,7 +43,8 @@ export default {
   .box {
     position: relative;
     width: 100%;
-    height: 100vh - $Header-height;
+    height: 100vh;
+    margin-top:  -$Header-height;
     overflow: hidden;
     display: flex;justify-content: center;
     align-items: center;

@@ -14,3 +14,12 @@
     transform: translateY(-100px);
   }
 }
+
+@keyframes stars-10 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200vh);
+  }
+}
