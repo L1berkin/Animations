@@ -22,6 +22,7 @@ export default {
       const y = event.offsetY
       const size = Math.random() * 100
       const duration = Math.random() * 10
+      const timeLive = Math.random() * 4000
 
       this.css(bubble, {
         left: x + 'px',
@@ -36,7 +37,7 @@ export default {
 
       setTimeout(() => {
         bubble.remove()
-      }, 2000)
+      }, timeLive)
 
       this.container.append(bubble)
     },

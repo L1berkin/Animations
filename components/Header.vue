@@ -63,7 +63,7 @@
     right: 0;
     box-shadow: 0 0 5px;
     background-color: rgba(255, 255, 255, 0.231);
-    z-index: 10;
+    z-index: 2000;
   }
 
   .main-nav {

@@ -27,7 +27,9 @@ export default {
         position: 'absolute',
         top: '-250px',
         background: 'rgba(255, 255, 255, .5)',
-        animation: `stars-10 ${duration}s linear infinite`
+        animation: `stars-10 ${duration}s linear infinite`,
+        userSelect: 'none',
+        pointerEvents: 'none'
       })
 
       scene.append(star)
@@ -47,6 +49,7 @@ export default {
       })
     },
     fast() {
+      document.querySelector('.rocket-box').style.borderTop = '1px solid #fff'
       document.querySelectorAll('i').forEach(star => {
         const duration = Math.random() * .1
         
@@ -56,6 +59,7 @@ export default {
       })
     },
     slow() {
+      document.querySelector('.rocket-box').style.borderTop = null
       document.querySelectorAll('i').forEach(star => {
         const duration = Math.random() * 1
         
@@ -79,6 +83,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: none;
 
   &:active .rocket-box:before,
   &:active .rocket-box:after {
@@ -95,6 +100,7 @@ export default {
   animation: shaking 0.2s ease infinite;
   z-index: 1000;
   user-select: none;
+  border-radius: 50%;
   &:before {
     content: '';
     position: absolute;
