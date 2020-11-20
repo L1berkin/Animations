@@ -1,25 +1,14 @@
 <template>
   <div class="container">
-    <div class="block-clock">
-      <div class="clock">
-        <span class="clock__number">1</span>
-        <span class="clock__number">2</span>
-        <span class="clock__number">3</span>
-        <span class="clock__number">4</span>
-        <span class="clock__number">5</span>
-        <span class="clock__number">6</span>
-        <span class="clock__number">7</span>
-        <span class="clock__number">8</span>
-        <span class="clock__number">9</span>
-        <span class="clock__number">10</span>
-        <span class="clock__number">11</span>
-        <span class="clock__number">12</span>
-        <div class="clock__arrows">
-          <div class="arrows">
-            <span class="arrows__arrow-hour"></span>
-            <span class="arrows__center"></span>
-          </div>
-        </div>
+    <div class="clock">
+      <div class="clock__hour">
+        <div class="hr" id="hr"></div>
+      </div>
+      <div class="clock__min">
+        <div class="mn" id="mn"></div>
+      </div>
+      <div class="clock__sec">
+        <div class="sc" id="sc"></div>
       </div>
     </div>
   </div>
@@ -27,139 +16,115 @@
 
 <script>
 export default {
-  
+  mounted() {
+    const hr = document.querySelector('#hr')
+    const mn = document.querySelector('#mn')
+    const sc = document.querySelector('#sc')
+
+    const deg = 6
+
+    setInterval(() => {
+      const day = new Date()
+      const hh = day.getHours() * 30
+      const mm = day.getMinutes() * deg
+      const ss = day.getSeconds() * deg
+
+      hr.style.transform = `rotateZ(${(hh)+(mm/12)})`
+      mn.style.transform = `rotateZ(${mm}deg)`
+      sc.style.transform = `rotateZ(${ss}deg)`
+    }, 1000);
+
+    
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .container {
-  background: #fff;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.block-clock {
-  width: 50%;
-  min-height: 300px;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: -100px;
-  border: 1px solid red;
+  min-height: $Header-height;
+  margin-top: -$Header-height;
+  background: #091921;
 }
 
 .clock {
   width: 350px;
   height: 350px;
-  position: relative;
-  border: 1px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(~@/assets/images/clock.png);
+  background-size: cover;
+  border: 4px solid #091921;
   border-radius: 50%;
-  font-weight: bold;
-  font-size: 1.5em;
-  background: radial-gradient(#fff, rgb(211, 218, 255));
-  box-shadow: 0 0 5px 0 #000;
+  box-shadow: 0 -15px 15px rgba(255, 255, 255, .05),
+              inset 0 -15px 15px rgba(255, 255, 255, .05),
+              0 -15px 15px rgba(0, 0, 0, .03),
+              inset 0 -15px 15px rgba(0, 0, 0, .03);
 
-  &__number {
+  &__hour, &__min, &__sec {
     position: absolute;
-    &:nth-child(1) {
-      top: 16%;
-      right: 30%;
-      transform: translate(50%, -50%);
-    }
-    &:nth-child(2) {
-      top: 30%;
-      right: 15%;
-      transform: translate(50%, -50%);
-    }
-    &:nth-child(3) {
-      top: 50%;
-      right: 6%;
-      transform: translate(-50%, -50%);
-    }
-    &:nth-child(4) {
-      bottom: 30%;
-      right: 15%;
-      transform: translate(50%, 50%);
-    }
-    &:nth-child(5) {
-      bottom: 16%;
-      right: 30%;
-      transform: translate(50%, 50%);
-    }
-    &:nth-child(6) {
-      left: 50%;
-      bottom: 5%;
-      transform: translateX(-50%);
-    }
-    &:nth-child(7) {
-      bottom: 16%;
-      left: 30%;
-      transform: translate(-50%, 50%);
-    }
-    &:nth-child(8) {
-      bottom: 30%;
-      left: 15%;
-      transform: translate(-50%, 50%);
-    }
-    &:nth-child(9) {
-      top: 50%;
-      left: 6%;
-      transform: translateY(-50%);
-    }
-    &:nth-child(10) {
-      top: 30%;
-      left: 15%;
-      transform: translate(-50%, -50%);
-    }
-    &:nth-child(11) {
-      top: 16%;
-      left: 30%;
-      transform: translate(-50%, -50%);
-    }
-    &:nth-child(12) {
-      left: 50%;
-      top: 6%;
-      transform: translateX(-50%);
-    }
   }
 
-  &__arrows {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid blue;
+  &__hour, .hr {
+    width: 160px;
+    height: 160px;
+  }
+
+  &__min, .mn {
+    width: 190px;
+    height: 190px;
+  }
+
+  &__sec, .sc {
+    width: 230px;
+    height: 230px;
   }
 }
 
-.arrows {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.clock::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 1000;
+}
 
-  &__center {
+.hr, .mn, .sc {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  border-radius: 50%;
+  &::before {
+    content: '';
     position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: #ff4f4f;
     border-radius: 50%;
+    border-radius: 6px 6px 0 0;
   }
-  
-  &__arrow-hour {
-    position: absolute;
-    left: 50%;
-    bottom: 50%;
-    width: 8px;
-    height: 120px;
-    border-radius: 10px;
-    transform: translate(-50%, -10%);
-    background:#ff4f4f;
-  }
+}
+
+.hr::before {
+  width: 8px;
+  height: 80px;
+  background: #ff105e;
+  z-index: 10;
+}
+
+.mn::before {
+  width: 4px;
+  height: 90px;
+  background: #fff;
+  z-index: 11;
+}
+
+.sc::before {
+  width: 2px;
+  height: 150px;
+  background: #fff;
+  z-index: 12;
 }
 </style>
