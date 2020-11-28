@@ -28,13 +28,12 @@ export default {
       const hh = day.getHours() * 30
       const mm = day.getMinutes() * deg
       const ss = day.getSeconds() * deg
+      console.log(hh, mm, ss)
 
-      hr.style.transform = `rotateZ(${(hh)+(mm/12)})`
+      hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`
       mn.style.transform = `rotateZ(${mm}deg)`
       sc.style.transform = `rotateZ(${ss}deg)`
     }, 1000);
-
-    
   }
 }
 </script>
