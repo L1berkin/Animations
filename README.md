@@ -12,7 +12,7 @@ $ npm dev
 - Vue, nuxt (использованы для удобства)
 
 ### Как это выглядит:
-![Анимации](./preview/FirstPage.jpg)
+![Анимации](./preview/firstPage.jpg) 
 ![Анимации](./preview/SecondPage.jpg)
 ![Анимации](./preview/ThirdPage.jpg)
 ![Анимации](./preview/FourthPage.jpg)
