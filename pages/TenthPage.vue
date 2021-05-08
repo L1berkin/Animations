@@ -1,7 +1,7 @@
 <template>
   <div class="container" @mousemove="fly" @mousedown="fast" @mouseup="slow">
-    <div class="scene">
-      <div class="rocket-box">
+    <div ref="scene" class="scene">
+      <div ref="rocket-box" class="rocket-box">
         <img src="@/assets/images/rocket.png" alt="ракета" class="rocket" />
       </div>
     </div>
@@ -12,8 +12,14 @@
 export default {
   mounted() {
     const count = 30
-    const scene = document.querySelector('.scene')
+    const scene = this.$refs.scene
     for (let i = 0; i < count; i++) {
+      const star = this.createStar()
+      scene.append(star)
+    }
+  },
+  methods: {
+    createStar() {
       const star = document.createElement('i')
       const x = Math.floor(Math.random() * window.innerWidth)
 
@@ -31,26 +37,23 @@ export default {
         userSelect: 'none',
         pointerEvents: 'none'
       })
-
-      scene.append(star)
-    }
-  },
-  methods: {
+      return star
+    },
     css($el, propertys = {}) {
       Object.keys(propertys).forEach(property => {
         $el.style[property] = propertys[property]
       })
     },
     fly(event) {
-      const rocket = document.querySelector('.rocket-box')
+      const rocket = this.$refs['rocket-box']
       this.css(rocket, {
         left: event.offsetX + 'px',
         top: event.offsetY + 'px'
       })
     },
     fast() {
-      document.querySelector('.rocket-box').style.borderTop = '1px solid #fff'
-      document.querySelectorAll('i').forEach(star => {
+      this.$refs['rocket-box'].style.borderTop = '1px solid #fff'
+      this.$refs.scene.querySelectorAll('i').forEach(star => {
         const duration = Math.random() * .1
         
         this.css(star, {
@@ -59,8 +62,8 @@ export default {
       })
     },
     slow() {
-      document.querySelector('.rocket-box').style.borderTop = null
-      document.querySelectorAll('i').forEach(star => {
+      this.$refs['rocket-box'].style.borderTop = null
+      this.$refs.scene.querySelectorAll('i').forEach(star => {
         const duration = Math.random() * 1
         
         this.css(star, {

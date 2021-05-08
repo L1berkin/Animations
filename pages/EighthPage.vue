@@ -1,17 +1,17 @@
 <template>
   <div class="container">
-    <div class="scene">
-      <div id="moonSun" class="moonSun" v-on:click="newDay()">
-        <img class="moon" src="@/assets/images/moon.png" alt="луна" width="100%">
+    <div ref="scene" class="scene">
+      <div ref="moon-sun" class="moonSun" v-on:click="newDay()">
+        <img ref="moon" class="moon" src="@/assets/images/moon.png" alt="луна" width="100%">
       </div>
-      <img src="@/assets/images/forest.png" alt="лес" class="forest" />
-      <img src="@/assets/images/cloud1.png" alt="облако" class="cloud cloud1" />
-      <img src="@/assets/images/cloud2.png" alt="облако" class="cloud cloud2" />
-      <img src="@/assets/images/cloud3.png" alt="облако" class="cloud cloud3" />
-      <img src="@/assets/images/cloud1.png" alt="облако" class="cloud cloud4" />
-      <img src="@/assets/images/cloud2.png" alt="облако" class="cloud cloud5" />
-      <img src="@/assets/images/cloud3.png" alt="облако" class="cloud cloud6" />
-      <div class="island-box hide">
+      <img ref="forest" src="@/assets/images/forest.png" alt="лес" class="forest" />
+      <img ref="cloud1" src="@/assets/images/cloud1.png" alt="облако" class="cloud cloud1" />
+      <img ref="cloud2" src="@/assets/images/cloud2.png" alt="облако" class="cloud cloud2" />
+      <img ref="cloud3" src="@/assets/images/cloud3.png" alt="облако" class="cloud cloud3" />
+      <img ref="cloud4" src="@/assets/images/cloud1.png" alt="облако" class="cloud cloud4" />
+      <img ref="cloud5" src="@/assets/images/cloud2.png" alt="облако" class="cloud cloud5" />
+      <img ref="cloud6" src="@/assets/images/cloud3.png" alt="облако" class="cloud cloud6" />
+      <div ref="island-box" class="island-box hide">
         <img src="@/assets/images/остров.png" alt="остров" class="island-box__img" width="100%">
       </div>
     </div>
@@ -22,14 +22,35 @@
 export default {
   data() {
     return {
-      stars: []
+      stars: [],
+      clouds: []
     }
   },
   mounted() {
     const count = 500
-    const scene = document.querySelector('.scene')
-    const box = document.createElement('div')
+    const scene = this.$refs.scene
     for (let i = 0; i < count; i++) {
+      const star = this.createStar()
+
+      this.stars.push(star)
+      scene.append(star)
+    }
+    this.clouds = [
+      this.$refs.cloud1,
+      this.$refs.cloud2,
+      this.$refs.cloud3,
+      this.$refs.cloud4,
+      this.$refs.cloud5,
+      this.$refs.cloud6
+    ]
+  },
+  methods: {
+    css($el, propertys = {}) {
+      Object.keys(propertys).forEach(property => {
+        $el.style[property] = propertys[property]
+      })
+    },
+    createStar() {
       const star = document.createElement('i')
       star.classList.add('star')
       const x = Math.floor(Math.random() * innerWidth)
@@ -49,30 +70,14 @@ export default {
         animationDuration: 5 + duration +'s',
         animationDelay: duration +'s'
       })
-
-      this.stars.push(star)
-      scene.append(star)
-    }
-    
-    this.clouds = document.querySelectorAll('.cloud')
-    this.moonSun = document.querySelector('#moonSun')
-    this.forest = document.querySelector('.forest')
-    this.moon = document.querySelector('.moon')
-    this.bg = document.querySelector('.scene')
-    this.island = document.querySelector('.island-box')
-  },
-  methods: {
-    css($el, propertys = {}) {
-      Object.keys(propertys).forEach(property => {
-        $el.style[property] = propertys[property]
-      })
+      return star
     },
     newDay() {
-      this.moonSun.classList.toggle('sun')
-      this.moonSun.classList.toggle('moon')
-      this.hideShow(this.forest)
-      this.hideShow(this.moon)
-      this.hideShow(this.island)
+      this.$refs['moon-sun'].classList.toggle('sun')
+      this.$refs['moon-sun'].classList.toggle('moon')
+      this.hideShow(this.$refs.forest)
+      this.hideShow(this.$refs.moon)
+      this.hideShow(this.$refs['island-box'])
       if (!this.stars[1].style.display) {
         Object.keys(this.stars).forEach( count => {
         this.stars[count].style.display = 'none'
@@ -91,7 +96,7 @@ export default {
         this.hideShow(star)
       })
 
-      this.changeBg(this.bg)
+      this.changeBg(this.$refs.scene)
     },
     hideShow($el) {
       $el.classList.toggle('hide')

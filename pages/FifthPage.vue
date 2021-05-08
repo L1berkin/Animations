@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @click="draw" @mousedown="startDraw" @mouseup="endDraw">
+  <div ref="container5" class="container" @click="draw" @mousedown="startDraw" @mouseup="endDraw">
 
   </div>
 </template>
@@ -10,9 +10,6 @@ export default {
     return {
       container: ''
     }
-  },
-  mounted() {
-    this.container = document.querySelector('.container')
   },
   methods: {
     draw() {
@@ -39,13 +36,13 @@ export default {
         bubble.remove()
       }, timeLive)
 
-      this.container.append(bubble)
+      this.$refs.container5.append(bubble)
     },
     startDraw() {
-      this.container.addEventListener('mousemove', this.draw)
+      this.$refs.container5.addEventListener('mousemove', this.draw)
     },
     endDraw() {
-      this.container.removeEventListener('mousemove', this.draw)
+      this.$refs.container5.removeEventListener('mousemove', this.draw)
     },
     css($el, propertys = {}) {
       Object.keys(propertys).forEach(property => {

@@ -1,6 +1,6 @@
 <template>
   <div class="container" @mousemove="parallax">
-    <section class="box">
+    <section ref="box" class="box">
       <img src="@/assets/images/Geom/1.png" data-speed="-5" alt="" class="geom-img layer">
       <img src="@/assets/images/Geom/2.png" data-speed="5" alt="" class="geom-img layer">
       <img src="@/assets/images/Geom/3.png" data-speed="2" alt="" class="geom-img layer">
@@ -22,7 +22,7 @@
 export default {
   methods: {
     parallax(event) {
-      document.querySelectorAll('.layer').forEach(layer => {
+      this.$refs.box.children.forEach(layer => {
         const speed = layer.getAttribute('data-speed')
 
         const x = (window.innerWidth - event.pageX*speed)/100

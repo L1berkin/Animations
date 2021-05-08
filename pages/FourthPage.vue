@@ -2,13 +2,13 @@
   <div class="container">
     <div class="clock">
       <div class="clock__hour">
-        <div class="hr" id="hr"></div>
+        <div ref="hr" class="hr"></div>
       </div>
       <div class="clock__min">
-        <div class="mn" id="mn"></div>
+        <div ref="mn" class="mn"></div>
       </div>
       <div class="clock__sec">
-        <div class="sc" id="sc"></div>
+        <div ref="sc" class="sc"></div>
       </div>
     </div>
   </div>
@@ -17,9 +17,9 @@
 <script>
 export default {
   mounted() {
-    const hr = document.querySelector('#hr')
-    const mn = document.querySelector('#mn')
-    const sc = document.querySelector('#sc')
+    const hr = this.$refs.hr
+    const mn = this.$refs.mn
+    const sc = this.$refs.sc
 
     const deg = 6
 

@@ -91,6 +91,7 @@ $border-radius: 10px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 
 .card {
